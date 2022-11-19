@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< Updated upstream
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+Route::get('/', 'DashboardController@index');
+
+//Login
+Route::get('/login', 'LoginController@index');
+Route::post('/login/auth', 'LoginController@auth');
+Route::get('/logout', 'LoginController@logout');
+
+//Register
+Route::get('/register', 'RegisterController@index');
+Route::post('/register/add', 'RegisterController@add');
+
+
+Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+>>>>>>> Stashed changes
