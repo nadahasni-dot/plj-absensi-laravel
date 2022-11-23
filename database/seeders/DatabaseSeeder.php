@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Schedule;
+use App\Models\Attendance;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -42,6 +44,37 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => $faker->dateTimeThisDecade('+2 years'),
                 'remember_token' => Str::random(10),
                 'password' => Hash::make(Str::random(6)),
+            ]);
+        }
+
+        // generate 1 schedule
+        Schedule::create([
+            'lat' => '-8.157552',
+            'lng' => '113.722978',
+            'radius' => '20',
+            'office' => 'Jurusan Teknologi Informasi',
+            'clock_in' => '07:00:00',
+            'clock_out' => '15:00:00'
+        ]);
+
+        //generate 1 day attendance of 30 users
+        for($j = 1; $j <= 30; $j++){
+            $date_in_min = '2022-11-25 06:45:00';
+            $date_in_max = '2022-11-25 07:15:00';
+            $date_out_min = '2022-11-25 14:45:00';
+            $date_out_max = '2022-11-25 15:15:00';
+            $min_in = strtotime($date_in_min);
+            $max_in = strtotime($date_in_max);
+            $rand_in = rand($min_in, $max_in);
+            $min_out = strtotime($date_out_min);
+            $max_out = strtotime($date_out_max);
+            $rand_out = rand($min_out, $max_out);
+            $clock_in = date('Y-m-d H:i:s', $rand_in);
+            $clock_out = date('Y-m-d H:i:s', $rand_out);
+            Attendance::create([
+                'id_user' => $j,
+                'clock_in' => $clock_in,
+                'clock_out' => $clock_out
             ]);
         }
     }

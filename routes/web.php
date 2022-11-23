@@ -24,14 +24,30 @@ Route::get('/logout', 'LoginController@logout');
 Route::get('/register', 'RegisterController@index');
 Route::post('/register/add', 'RegisterController@add');
 
-
+//Dashboard
 Route::get('/dashboard', 'DashboardController@index');
 
+//Profile
+Route::get('/profile/{id}', 'ProfileController@index');
+Route::put('/profile/update/{id}', 'ProfileController@update');
+
+//Pegawai
 Route::get('/pegawai', 'UserController@index');
 Route::get('/pegawai/tambah', 'UserController@tambah');
 Route::post('pegawai/add', 'UserController@add');
 Route::get('/pegawai/edit/{id}', 'UserController@edit');
 Route::put('/pegawai/update/{id}', 'UserController@update');
 Route::get('/pegawai/delete/{id}', 'UserController@delete');
+
+//Schedule
+Route::get('/schedule', 'ScheduleController@index');
+Route::put('/schedule/update/{id}', 'ScheduleController@update');
+
+//Atendance
+Route::get('/attendance', 'AttendanceController@index');
+Route::post('/attendance/date', 'AttendanceController@date');
+// Route::match(array('GET','POST'),'/attendance', 'AttendanceController@index');
+// Route::match(array('GET','POST'),'/attendance/date', 'AttendanceController@index');
+// Route::post('/attendance/date', 'AttendanceController@date');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

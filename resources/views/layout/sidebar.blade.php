@@ -2,9 +2,9 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('dashboard') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="41.1" height="51.6">
         </div>
         <div class="sidebar-brand-text mx-3">{{config('app.name')}}</div>
       </a>
@@ -35,7 +35,7 @@
       </li>
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url('absensi') }}">
+        <a class="nav-link" href="{{ url('attendance') }}">
           <i class="fas fa-fw fa-table"></i>
           <span>Absensi Pegawai</span></a>
       </li>
@@ -50,15 +50,9 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url('jadwal') }}">
+        <a class="nav-link" href="{{ url('schedule') }}">
           <i class="fas fa-fw fa-clock"></i>
           <span>Jadwal</span></a>
-      </li>
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url('lokasi') }}">
-          <i class="fas fa-fw fa-map"></i>
-          <span>Lokasi</span></a>
       </li>
 
       <!-- Divider -->
