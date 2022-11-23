@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="icon" href="{{ asset('assets/img/logo.png') }}">
 
   <title>{{config('app.name')}}</title>
 
@@ -106,7 +107,6 @@
 
   <!-- Page level custom scripts -->
   <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
-
 
 </body>
 
