@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $credentials = $request->validate([
@@ -22,7 +17,7 @@ class AuthApiController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            $token = $user->createToken(env('APP_KEY'))->plainTextToken;
+            $token = $user->createToken(env('APP_KEY', 'base64:PJUxpvucERPN3rYRy6r7lS85Pzxda+1nusOUNhuzn8o='))->plainTextToken;
 
             return response()->json(
                 [

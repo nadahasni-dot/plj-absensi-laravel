@@ -41,9 +41,9 @@ class DatabaseSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'nip' => random_int(100000000000000000, 999999999999999999),
-                'email_verified_at' => $faker->dateTimeThisDecade('+2 years'),
+                'email_verified_at' => now(),
                 'remember_token' => Str::random(10),
-                'password' => Hash::make(Str::random(6)),
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             ]);
         }
 
