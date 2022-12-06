@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceApiController;
 use App\Http\Controllers\AuthApiController;
 use App\Http\Controllers\ScheduleApiController;
 use Illuminate\Http\Request;
@@ -24,4 +25,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // get info
     Route::get('/scheduleinfo', [ScheduleApiController::class, 'index']);
+
+    // get history attendances
+    Route::get('/attendance', [AttendanceApiController::class, 'index']);
+    Route::get('/attendance/{id}', [AttendanceApiController::class, 'show']);
 });
