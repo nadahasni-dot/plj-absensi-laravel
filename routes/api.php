@@ -28,5 +28,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // get history attendances
     Route::get('/attendance', [AttendanceApiController::class, 'index']);
+
+    // get detaila attendance
     Route::get('/attendance/{id}', [AttendanceApiController::class, 'show']);
+
+    // submit attendance
+    Route::post('/attendance', [AttendanceApiController::class, 'store']);
 });
