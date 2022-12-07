@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // get signed in user
     Route::get('/user', [AuthApiController::class, 'show']);
 
+    // update user
+    Route::post('/user', [AuthApiController::class, 'update']);
+
     // get info
     Route::get('/scheduleinfo', [ScheduleApiController::class, 'index']);
 
