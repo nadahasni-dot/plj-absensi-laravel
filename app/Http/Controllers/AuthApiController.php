@@ -41,11 +41,13 @@ class AuthApiController extends Controller
 
     public function show(Request $request)
     {
+        $user = User::where('id', $request->user()->id)->first();
+
         return response()->json(
             [
                 'success' => true,
                 'message' => 'get user success',
-                'data' => $request->user(),
+                'data' => $user,
             ],
             200
         );
