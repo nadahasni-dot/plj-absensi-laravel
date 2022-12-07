@@ -10,11 +10,28 @@ Terdiri dari sistem admin CRUD, dan REST API untuk aplikasi mobile
 
 3. Jalankan migrasi database
 
-`php artisan migrate:fresh --seed`
+```
+php artisan migrate:fresh --seed
+```
 
-4. Jalankan Server
+4. Bersihkan cache
 
-`php artisan serve`
+```
+php artisan config:clear
+php artisan route:clear
+```
+
+5. Link Storage Untuk File upload
+
+```
+php artisan storage:link
+```
+
+6. Jalankan Server
+
+```
+php artisan serve
+```
 
 ## Dokumentasi REST API
 [Absensi Laravel PLJ REST API Documentation](https://documenter.getpostman.com/view/10944704/2s8YmNQN82)
