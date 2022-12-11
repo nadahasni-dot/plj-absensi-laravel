@@ -56,8 +56,27 @@ class AuthApiController extends Controller
     public function update(Request $request)
     {
         $param = $request->validate([
-            'avatar' => 'required',
             'name' => 'required',
+        ]);
+
+        $userId = $request->user()->id;
+
+        User::where('id', $userId)->update($param);
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'update user success',
+                'data' => User::where('id', $userId)->first(),
+            ],
+            200
+        );
+    }
+
+    public function avatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required'
         ]);
 
         $userId = $request->user()->id;
@@ -66,8 +85,7 @@ class AuthApiController extends Controller
         $file->move('storage/avatar', $avatar);
 
         User::where('id', $userId)->update([
-            'avatar' => $avatar,
-            'name' => $param['name'],
+            'avatar' => $avatar
         ]);
 
         return response()->json(

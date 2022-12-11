@@ -26,6 +26,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // update user
     Route::post('/user', [AuthApiController::class, 'update']);
 
+    // update avatar
+    Route::post('/avatar', [AuthApiController::class, 'avatar']);
+
     // get info
     Route::get('/scheduleinfo', [ScheduleApiController::class, 'index']);
 
