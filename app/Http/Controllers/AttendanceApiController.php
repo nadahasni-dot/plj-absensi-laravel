@@ -127,7 +127,7 @@ class AttendanceApiController extends Controller
             [
                 'success' => true,
                 'message' => 'get detail success',
-                'data' => Attendance::where('id', $id)->get(),
+                'data' => Attendance::where('id', $id)->get()->first(),
             ],
             200
         );
