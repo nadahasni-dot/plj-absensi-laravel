@@ -20,7 +20,7 @@ class AttendanceApiController extends Controller
             [
                 'success' => true,
                 'message' => 'get history success',
-                'data' => Attendance::where('id_user', $user->id)->get(),
+                'data' => Attendance::where('id_user', $user->id)->orderBy('created_at', 'DESC')->get(),
             ],
             200
         );
