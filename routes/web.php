@@ -46,6 +46,14 @@ Route::put('/schedule/update/{id}', 'ScheduleController@update');
 //Atendance
 Route::get('/attendance', 'AttendanceController@index');
 Route::post('/attendance/date', 'AttendanceController@date');
+
+Route::get('/termsandcondition', function () {
+    return view('terms');
+});
+
+Route::get('/privacypolicy', function () {
+    return view('privacy');
+});
 // Route::match(array('GET','POST'),'/attendance', 'AttendanceController@index');
 // Route::match(array('GET','POST'),'/attendance/date', 'AttendanceController@index');
 // Route::post('/attendance/date', 'AttendanceController@date');
